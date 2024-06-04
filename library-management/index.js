@@ -106,12 +106,14 @@ app.get('/books/:id', (req, res) => {
 app.put('/books/:id', (req, res) => {
     const book = books.find(b => b.id == req.params.id);
     if (!book) return res.status(404).json({ message: 'Book not found' });
-
+    const book1 = books.find(b => (b.title == req.body.title && b.title == req.body.title));
+    if (!book1) {
     const { title, author, publicationDate, genre } = req.body;
     book.title = title !== undefined ? title : book.title;
     book.author = author !== undefined ? author : book.author;
     book.publicationDate = publicationDate !== undefined ? publicationDate : book.publicationDate;
-    book.genre = genre !== undefined ? genre : book.genre;
+    book.genre = genre !== undefined ? genre : book.genre;}
+    else return res.status(404).json({ message: 'This book already exists!' });
 
     res.json(book);
 });
