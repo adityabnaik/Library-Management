@@ -58,7 +58,7 @@ app.get('/', (req, res) => {
 // Create a new book
 app.post('/books', (req, res) => {
     let { title, author, publicationDate, genre } = req.body;
-    title = title.trim(); author = author.trim()
+    title = title.trim(); author = author.trim();
     const book = books.find(b => (b.title == title && b.author == author));
     if (!book) {
         c = 1, f = 1;
@@ -84,7 +84,7 @@ app.post('/books', (req, res) => {
 // Create a new book at specific ID
 app.post('/books/:id', (req, res) => {
     let { title, author, publicationDate, genre } = req.body;
-    title = title.trim(); author = author.trim()
+    title = title.trim(); author = author.trim();
     const book = books.find(b => (b.title == title && b.author == author));
     if (!book) {
         const book = books.find(b => b.id == req.params.id);
