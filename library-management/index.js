@@ -81,7 +81,7 @@ app.post('/books', (req, res) => {
     else return res.status(404).json({ message: 'This book already exists!' });
 });
 
-// Create a new book at specific id
+// Create a new book at specific ID
 app.post('/books/:id', (req, res) => {
     let { title, author, publicationDate, genre } = req.body;
     title = title.trim(); author = author.trim()
